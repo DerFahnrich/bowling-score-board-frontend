@@ -1,0 +1,7 @@
+@use "../abstracts/" as *;
+
+.app {
+  @include container;
+  
+  padding-top: 3rem;
+}

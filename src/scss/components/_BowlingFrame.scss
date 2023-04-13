@@ -1,0 +1,60 @@
+.bowling-frame {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 8.5rem;
+  width: 100%;
+
+  &:first-child {
+    border-left: 1px solid black;
+  }
+
+  & .active {
+    background: lightgray;
+  }
+
+  .frame-number {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .rolls-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 50%;
+
+    .roll1,
+    .roll2 {
+      font-size: 1.6rem;
+    }
+
+    .roll1 {
+      padding-bottom: 1px;
+    }
+
+    .roll2 {
+      border-bottom: 1px solid black;
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+    }
+  }
+
+  .frame-score {
+    border-right: 1px solid black;
+    font-size: 2rem;
+    font-weight: 600;
+    height: 50%;
+  }
+
+  .roll1,
+  .roll2,
+  .frame-score {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+}
