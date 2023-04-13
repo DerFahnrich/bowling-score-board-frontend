@@ -1,0 +1,26 @@
+.score-frame {
+  display: flex;
+  flex-direction: column;
+
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  width: 100%;
+
+  .frame-header {
+    border-bottom: 1px solid black;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .total-score {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    flex-grow: 1;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+}
