@@ -22,12 +22,16 @@ export const PinButtons = () => {
   const dispatch = useAppDispatch();
 
   const updateNumberOfPinsAndFrameScore = (pinNumber: number) => {
-    console.log("RollNumber: ", rollNumber);
-    if (!newFrame.current.frameNumber) {
-      newFrame.current = { frameNumber: currentFrameNumber };
-    }
+    newFrame.current = { frameNumber: currentFrameNumber || 1 };
 
     if (rollNumber === 1) {
+      if (pinNumber === 10) {
+        newFrame.current = { ...newFrame.current, roll1: pinNumber };
+        dispatch(updateFrames(newFrame.current));
+        dispatch(getCalculatedScore());
+        return;
+      }
+
       const pinsToKeep = 10 - pinNumber + 1;
       dispatch(updatePinButtons(pinButtons.slice(0, pinsToKeep)));
 
@@ -39,9 +43,6 @@ export const PinButtons = () => {
 
     if (rollNumber === 2) {
       newFrame.current = { ...newFrame.current, roll2: pinNumber };
-      console.log("In if if rooNumber ===2");
-
-      console.log(import.meta.env.VITE_BASE_API_BOWLING_URL);
 
       dispatch(updateFrames(newFrame.current));
       dispatch(updateRollNumber(1));

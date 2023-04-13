@@ -41,7 +41,6 @@ export const getCalculatedScore = createAsyncThunk<IScoreBoardData, void, IAsync
 
     if (response.ok) {
       const frames = (await response.json()) as IScoreBoardData;
-      console.log(frames);
       return frames;
     }
 
@@ -58,11 +57,11 @@ const bowlingSlice = createSlice({
       state.pinButtons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     },
     updateCurrentFrameNumber: (state, action: PayloadAction<number>) => {
+      console.log("updating framenumber");
       state.currentFrameNumber = action.payload;
     },
     updateFrames: (state, action: PayloadAction<IFrame>) => {
       const payload = action.payload;
-      console.log("payload: ", payload);
 
       if (!state.frames) {
         state.frames = [payload];
@@ -74,7 +73,6 @@ const bowlingSlice = createSlice({
       );
 
       if (indexOfFrameIfExists >= 0) {
-        console.log("In heter");
         state.frames[indexOfFrameIfExists] = { ...state.frames[indexOfFrameIfExists], ...payload };
         return;
       }
@@ -85,7 +83,6 @@ const bowlingSlice = createSlice({
       state.pinButtons = action.payload;
     },
     updateRollNumber: (state, action: PayloadAction<1 | 2>) => {
-      console.log("Updateing rollNumber");
       state.rollNumber = action.payload;
     },
   },
