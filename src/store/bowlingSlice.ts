@@ -57,7 +57,6 @@ const bowlingSlice = createSlice({
       state.pinButtons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     },
     updateCurrentFrameNumber: (state, action: PayloadAction<number>) => {
-      console.log("updating framenumber");
       state.currentFrameNumber = action.payload;
     },
     updateFrames: (state, action: PayloadAction<IFrame>) => {
@@ -91,7 +90,6 @@ const bowlingSlice = createSlice({
       console.log("Loading");
     });
     builder.addCase(getCalculatedScore.fulfilled, (state, action) => {
-      console.log(action.payload.previousFrames);
       state.frames = action.payload.previousFrames;
     });
     builder.addCase(getCalculatedScore.rejected, (state, action) => {
